@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Products</h1>
+<form method="GET">
+    <input type="text" name="q" placeholder="Search...">
+    <button type="submit">Search</button>
+</form>
+{% for product in products %}
+<div class="product">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p>{{ product.price }}</p>
+    {% if product.image %}
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock %}
